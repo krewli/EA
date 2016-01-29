@@ -49,6 +49,18 @@ namespace Knapsack
 	{
 	    return item_count_;
 	}
+	
+	bool operator==(const Knapsack& other) const
+	{
+	    return (capacity_ == other.capacity_ &&
+		    item_count_ == other.item_count_ &&
+		    data_ == other.data_);
+	}
+	
+	bool operator!=(const Knapsack& other) const
+	{
+	    return !(*this == other);
+	}
 
     protected:
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include "knapsack_utilities.h"
+#include "knapsack_utility.h"
 #include "knapsack_item.h"
 #include "knapsack_id.h"
 
@@ -39,6 +39,6 @@ namespace Knapsack
 
 	file.close() ;
 
-	return Knapsack { KnapsackID(0), capacity, number_of_items, items } ;
+	return Knapsack { capacity, number_of_items, items } ;
     }
 }
