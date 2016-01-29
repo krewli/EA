@@ -13,7 +13,7 @@
 
 namespace Knapsack
 {
-    Knapsack read_knapsack_data( const std::string& filename )
+    Knapsack read_knapsack( const std::string& filename )
     {
 	std::ifstream file { filename } ;
 

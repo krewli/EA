@@ -29,12 +29,12 @@ namespace Knapsack
 
 	};
 
-	TEST_F( KnapsackUtilityTestSuite, test_reading_knapsack_data )
+	TEST_F( KnapsackUtilityTestSuite, test_read_knapsack )
 	{
 	    try
 	    {
 		std::string filename { "data/knapsack/ks_3_0" };
-		Knapsack actual_knapsack = read_knapsack_data(filename);
+		Knapsack actual_knapsack = read_knapsack(filename);
 
 		Knapsack::data_type expected_data {
 		    KnapsackItem(KnapsackID(0), 45, 5),
@@ -54,7 +54,7 @@ namespace Knapsack
 
 	TEST_F( KnapsackUtilityTestSuite, test_exception_throwing_when_reading_from_file_that_does_not_exist )
 	{
-	    EXPECT_THROW(read_knapsack_data("ks_3_0"), std::runtime_error);
+	    EXPECT_THROW(read_knapsack("ks_3_0"), std::runtime_error);
 	}
     }
 }

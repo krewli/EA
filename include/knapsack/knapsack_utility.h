@@ -20,7 +20,7 @@
 namespace Knapsack
 {
     // filenames ks_30_0, ks_50_0, ks_200_0, ks_400_0, ks_1000_0, ks_10000_0
-    Knapsack read_knapsack_data(const std::string& filename);
+    Knapsack read_knapsack(const std::string& filename);
 }
 
 
