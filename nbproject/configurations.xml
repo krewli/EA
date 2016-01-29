@@ -5,7 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>include/knapsack/knapsack.h</itemPath>
-      <itemPath>include/knapsack/knapsack_data.h</itemPath>
+      <itemPath>include/knapsack/knapsack_id.h</itemPath>
       <itemPath>include/knapsack/knapsack_item.h</itemPath>
       <itemPath>include/knapsack/knapsack_utilities.h</itemPath>
     </logicalFolder>
@@ -16,6 +16,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/knapsack/knapsack_utilities.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -41,17 +42,25 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
+          <incDir>
+            <pElem>include/knapsack</pElem>
+          </incDir>
         </ccTool>
       </compileType>
       <item path="include/knapsack/knapsack.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/knapsack/knapsack_data.h" ex="false" tool="3" flavor2="0">
+      <item path="include/knapsack/knapsack_id.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_item.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_utilities.h"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/knapsack/knapsack_utilities.cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
@@ -80,13 +89,18 @@
       </compileType>
       <item path="include/knapsack/knapsack.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/knapsack/knapsack_data.h" ex="false" tool="3" flavor2="0">
+      <item path="include/knapsack/knapsack_id.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_item.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_utilities.h"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/knapsack/knapsack_utilities.cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">

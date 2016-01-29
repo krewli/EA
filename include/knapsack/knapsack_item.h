@@ -14,49 +14,20 @@
 #ifndef KNAPSACK_ITEM_H
 #define KNAPSACK_ITEM_H
 
+#include "knapsack_id.h"
+
 namespace Knapsack
 {
-
-    class KnapsackItemID
-    {
-    public:
-	KnapsackItemID(int id)
-	: id_{ id }
-	{
-	}
-
-	KnapsackItemID(const KnapsackItemID&) = default;
-	
-	~KnapsackItemID() = default;
-
-	bool operator==(const KnapsackItemID& other) const
-	{
-	    return (id_ == other.id_);
-	}
-	
-	bool operator!=(const KnapsackItemID& other) const
-	{
-	    return !(*this == other);
-	}
-
-    private:
-	const int id_;
-	
-	KnapsackItemID(KnapsackItemID&&) = delete;
-	
-	KnapsackItemID& operator=(const KnapsackItemID&) = delete;
-	KnapsackItemID& operator=(KnapsackItemID&&) = delete;
-    };
-
     class KnapsackItem
     {
     public:
-	KnapsackItem(const KnapsackItemID& id, int value, int weight)
+	KnapsackItem(const KnapsackID& id, int value, int weight)
 	: id_{ id }, value_{ value }, weight_{ weight }
 	{
 	}
 
 	KnapsackItem(const KnapsackItem&) = default;
+	KnapsackItem(KnapsackItem&&) = default;
 
 	~KnapsackItem() = default;
 
@@ -83,11 +54,12 @@ namespace Knapsack
     protected:
 
     private:
-	const KnapsackItemID id_;
+	const KnapsackID id_;
 	const int value_;
 	const int weight_;
 
 	KnapsackItem& operator=(const KnapsackItem&) = delete;
+	KnapsackItem& operator=(KnapsackItem&&) = delete;
     };
 }
 
