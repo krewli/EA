@@ -5,33 +5,27 @@
  */
 
 /* 
- * File:   genetic_mutation.h
+ * File:   knapsack_mutation.h
  * Author: krewli
  *
- * Created on January 30, 2016, 3:54 PM
+ * Created on January 30, 2016, 5:35 PM
  */
 
-#ifndef GENETIC_MUTATION_H
-#define GENETIC_MUTATION_H
+#ifndef KNAPSACK_MUTATION_H
+#define KNAPSACK_MUTATION_H
 
-#include <algorithm>
-#include <iterator>
-
+#include "genetic_mutation.h"
 #include "seed.h"
-#include "random.h"
 
-namespace ga
+namespace knapsack
 {
-
-    template<typename gene_t, typename chromosome_t>
-    struct Mutation
+    struct KnapsackMutation
+    : public ga::Mutation<bool, std::vector<bool>>
     {
-	using genotype = gene_t;
-	using chromosome_type = chromosome_t;
 
 	static chromosome_type mutate(const chromosome_type& chromosome,
 				unsigned double probability,
-				const util::Seed& seed)
+				const util::Seed & seed = util::NO_SEED)
 	{
 	    unsigned seed_counter = 0;
 	    util::Seed internal_seed = seed;
@@ -39,7 +33,7 @@ namespace ga
 	    chromosome_type new_chromosome = chromosome;
 
 	    std::for_each(std::begin(new_chromosome), std::end(new_chromosome),
-		    [&](genotype& gene)
+		    [&](chromosome_type::reference gene)
 		    {
 			if (internal_seed != util::NO_SEED)
 			    internal_seed += seed_counter++;
@@ -50,11 +44,20 @@ namespace ga
 	}
 
 	static genotype mutate_gene(const genotype& gene,
-				unsigned double probability,
-				const util::Seed& seed);
+				double probability,
+				const util::Seed & seed)
+	{
+	    genotype new_gene = gene;
+
+	    if (util::get_random_real(0, 1, seed) < probability) {
+
+		new_gene = gene == true ? false : true;
+	    }
+
+	    return new_gene;
+	}
     };
 }
 
-
-#endif /* GENETIC_MUTATION_H */
+#endif /* KNAPSACK_MUTATION_H */
 

@@ -51,8 +51,10 @@ TESTFILES= \
 # Test Object Files
 TESTOBJECTFILES= \
 	${TESTDIR}/test/knapsack/test_knapsack.o \
+	${TESTDIR}/test/knapsack/test_knapsack_fitness.o \
 	${TESTDIR}/test/knapsack/test_knapsack_id.o \
 	${TESTDIR}/test/knapsack/test_knapsack_item.o \
+	${TESTDIR}/test/knapsack/test_knapsack_mutation.o \
 	${TESTDIR}/test/knapsack/test_knapsack_utility.o \
 	${TESTDIR}/test/utility/test_random.o \
 	${TESTDIR}/test/utility/test_seed.o
@@ -107,7 +109,7 @@ ${TESTDIR}/TestFiles/f2: ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS} 
 
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/test/knapsack/test_knapsack.o ${TESTDIR}/test/knapsack/test_knapsack_id.o ${TESTDIR}/test/knapsack/test_knapsack_item.o ${TESTDIR}/test/knapsack/test_knapsack_utility.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/test/knapsack/test_knapsack.o ${TESTDIR}/test/knapsack/test_knapsack_fitness.o ${TESTDIR}/test/knapsack/test_knapsack_id.o ${TESTDIR}/test/knapsack/test_knapsack_item.o ${TESTDIR}/test/knapsack/test_knapsack_mutation.o ${TESTDIR}/test/knapsack/test_knapsack_utility.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} 
 
@@ -122,6 +124,12 @@ ${TESTDIR}/test/knapsack/test_knapsack.o: test/knapsack/test_knapsack.cpp
 	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack.o test/knapsack/test_knapsack.cpp
 
 
+${TESTDIR}/test/knapsack/test_knapsack_fitness.o: test/knapsack/test_knapsack_fitness.cpp 
+	${MKDIR} -p ${TESTDIR}/test/knapsack
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_fitness.o test/knapsack/test_knapsack_fitness.cpp
+
+
 ${TESTDIR}/test/knapsack/test_knapsack_id.o: test/knapsack/test_knapsack_id.cpp 
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
@@ -132,6 +140,12 @@ ${TESTDIR}/test/knapsack/test_knapsack_item.o: test/knapsack/test_knapsack_item.
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_item.o test/knapsack/test_knapsack_item.cpp
+
+
+${TESTDIR}/test/knapsack/test_knapsack_mutation.o: test/knapsack/test_knapsack_mutation.cpp 
+	${MKDIR} -p ${TESTDIR}/test/knapsack
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_mutation.o test/knapsack/test_knapsack_mutation.cpp
 
 
 ${TESTDIR}/test/knapsack/test_knapsack_utility.o: test/knapsack/test_knapsack_utility.cpp 
