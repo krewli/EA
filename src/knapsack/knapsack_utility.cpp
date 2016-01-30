@@ -11,7 +11,7 @@
 #include <fstream>
 #include <stdexcept>
 
-namespace Knapsack
+namespace knapsack
 {
     Knapsack read_knapsack( const std::string& filename )
     {

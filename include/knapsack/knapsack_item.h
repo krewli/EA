@@ -16,7 +16,7 @@
 
 #include "knapsack_id.h"
 
-namespace Knapsack
+namespace knapsack
 {
     class KnapsackItem
     {

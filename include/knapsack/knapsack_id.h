@@ -14,7 +14,7 @@
 #ifndef KNAPSACK_ID_H
 #define KNAPSACK_ID_H
 
-namespace Knapsack
+namespace knapsack
 {
     class KnapsackID
     {

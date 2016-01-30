@@ -43,14 +43,17 @@ TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
 
 # Test Files
 TESTFILES= \
-	${TESTDIR}/TestFiles/f1
+	${TESTDIR}/TestFiles/f2 \
+	${TESTDIR}/TestFiles/f1 \
+	${TESTDIR}/TestFiles/f3
 
 # Test Object Files
 TESTOBJECTFILES= \
 	${TESTDIR}/test/knapsack/test_knapsack.o \
 	${TESTDIR}/test/knapsack/test_knapsack_id.o \
 	${TESTDIR}/test/knapsack/test_knapsack_item.o \
-	${TESTDIR}/test/knapsack/test_knapsack_utility.o
+	${TESTDIR}/test/knapsack/test_knapsack_utility.o \
+	${TESTDIR}/test/utility/test_seed.o
 
 # C Compiler Flags
 CFLAGS=
@@ -93,9 +96,17 @@ ${OBJECTDIR}/src/main.o: src/main.cpp
 .build-tests-conf: .build-tests-subprojects .build-conf ${TESTFILES}
 .build-tests-subprojects:
 
+${TESTDIR}/TestFiles/f2: ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS} 
+
 ${TESTDIR}/TestFiles/f1: ${TESTDIR}/test/knapsack/test_knapsack.o ${TESTDIR}/test/knapsack/test_knapsack_id.o ${TESTDIR}/test/knapsack/test_knapsack_item.o ${TESTDIR}/test/knapsack/test_knapsack_utility.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} 
+
+${TESTDIR}/TestFiles/f3: ${TESTDIR}/test/utility/test_seed.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f3 $^ ${LDLIBSOPTIONS} 
 
 
 ${TESTDIR}/test/knapsack/test_knapsack.o: test/knapsack/test_knapsack.cpp 
@@ -120,6 +131,12 @@ ${TESTDIR}/test/knapsack/test_knapsack_utility.o: test/knapsack/test_knapsack_ut
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_utility.o test/knapsack/test_knapsack_utility.cpp
+
+
+${TESTDIR}/test/utility/test_seed.o: test/utility/test_seed.cpp 
+	${MKDIR} -p ${TESTDIR}/test/utility
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/utility/test_seed.o test/utility/test_seed.cpp
 
 
 ${OBJECTDIR}/src/knapsack/knapsack_utility_nomain.o: ${OBJECTDIR}/src/knapsack/knapsack_utility.o src/knapsack/knapsack_utility.cpp 
@@ -152,7 +169,9 @@ ${OBJECTDIR}/src/main_nomain.o: ${OBJECTDIR}/src/main.o src/main.cpp
 .test-conf:
 	@if [ "${TEST}" = "" ]; \
 	then  \
+	    ${TESTDIR}/TestFiles/f2 || true; \
 	    ${TESTDIR}/TestFiles/f1 || true; \
+	    ${TESTDIR}/TestFiles/f3 || true; \
 	else  \
 	    ./${TEST} || true; \
 	fi

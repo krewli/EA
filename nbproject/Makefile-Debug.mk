@@ -43,14 +43,17 @@ TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
 
 # Test Files
 TESTFILES= \
-	${TESTDIR}/TestFiles/f1
+	${TESTDIR}/TestFiles/f2 \
+	${TESTDIR}/TestFiles/f1 \
+	${TESTDIR}/TestFiles/f3
 
 # Test Object Files
 TESTOBJECTFILES= \
 	${TESTDIR}/test/knapsack/test_knapsack.o \
 	${TESTDIR}/test/knapsack/test_knapsack_id.o \
 	${TESTDIR}/test/knapsack/test_knapsack_item.o \
-	${TESTDIR}/test/knapsack/test_knapsack_utility.o
+	${TESTDIR}/test/knapsack/test_knapsack_utility.o \
+	${TESTDIR}/test/utility/test_seed.o
 
 # C Compiler Flags
 CFLAGS=
@@ -79,12 +82,12 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ea: ${OBJECTFILES}
 ${OBJECTDIR}/src/knapsack/knapsack_utility.o: src/knapsack/knapsack_utility.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/knapsack
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Iinclude/knapsack -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/knapsack/knapsack_utility.o src/knapsack/knapsack_utility.cpp
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/knapsack/knapsack_utility.o src/knapsack/knapsack_utility.cpp
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Iinclude/knapsack -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
 
 # Subprojects
 .build-subprojects:
@@ -93,34 +96,49 @@ ${OBJECTDIR}/src/main.o: src/main.cpp
 .build-tests-conf: .build-tests-subprojects .build-conf ${TESTFILES}
 .build-tests-subprojects:
 	cd ../../../c++_libraries/gtest && ${MAKE}  -f Makefile CONF=Debug
+	cd ../../../c++_libraries/gtest && ${MAKE}  -f Makefile CONF=Debug
+
+${TESTDIR}/TestFiles/f2: ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc} -pthread  -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS} ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a 
 
 ${TESTDIR}/TestFiles/f1: ${TESTDIR}/test/knapsack/test_knapsack.o ${TESTDIR}/test/knapsack/test_knapsack_id.o ${TESTDIR}/test/knapsack/test_knapsack_item.o ${TESTDIR}/test/knapsack/test_knapsack_utility.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.cc}  -pthread -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a 
+	${LINK.cc} -pthread -pthread -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a 
+
+${TESTDIR}/TestFiles/f3: ${TESTDIR}/test/utility/test_seed.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc} -pthread  -o ${TESTDIR}/TestFiles/f3 $^ ${LDLIBSOPTIONS} ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a 
 
 
 ${TESTDIR}/test/knapsack/test_knapsack.o: test/knapsack/test_knapsack.cpp 
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Iinclude/knapsack -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack.o test/knapsack/test_knapsack.cpp
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack.o test/knapsack/test_knapsack.cpp
 
 
 ${TESTDIR}/test/knapsack/test_knapsack_id.o: test/knapsack/test_knapsack_id.cpp 
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Iinclude/knapsack -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_id.o test/knapsack/test_knapsack_id.cpp
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_id.o test/knapsack/test_knapsack_id.cpp
 
 
 ${TESTDIR}/test/knapsack/test_knapsack_item.o: test/knapsack/test_knapsack_item.cpp 
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Iinclude/knapsack -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_item.o test/knapsack/test_knapsack_item.cpp
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_item.o test/knapsack/test_knapsack_item.cpp
 
 
 ${TESTDIR}/test/knapsack/test_knapsack_utility.o: test/knapsack/test_knapsack_utility.cpp 
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Iinclude/knapsack -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_utility.o test/knapsack/test_knapsack_utility.cpp
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_utility.o test/knapsack/test_knapsack_utility.cpp
+
+
+${TESTDIR}/test/utility/test_seed.o: test/utility/test_seed.cpp 
+	${MKDIR} -p ${TESTDIR}/test/utility
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/utility/test_seed.o test/utility/test_seed.cpp
 
 
 ${OBJECTDIR}/src/knapsack/knapsack_utility_nomain.o: ${OBJECTDIR}/src/knapsack/knapsack_utility.o src/knapsack/knapsack_utility.cpp 
@@ -131,7 +149,7 @@ ${OBJECTDIR}/src/knapsack/knapsack_utility_nomain.o: ${OBJECTDIR}/src/knapsack/k
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -Iinclude/knapsack -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/knapsack/knapsack_utility_nomain.o src/knapsack/knapsack_utility.cpp;\
+	    $(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/knapsack/knapsack_utility_nomain.o src/knapsack/knapsack_utility.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/knapsack/knapsack_utility.o ${OBJECTDIR}/src/knapsack/knapsack_utility_nomain.o;\
 	fi
@@ -144,7 +162,7 @@ ${OBJECTDIR}/src/main_nomain.o: ${OBJECTDIR}/src/main.o src/main.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -Iinclude/knapsack -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main_nomain.o src/main.cpp;\
+	    $(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main_nomain.o src/main.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/main_nomain.o;\
 	fi
@@ -153,7 +171,9 @@ ${OBJECTDIR}/src/main_nomain.o: ${OBJECTDIR}/src/main.o src/main.cpp
 .test-conf:
 	@if [ "${TEST}" = "" ]; \
 	then  \
+	    ${TESTDIR}/TestFiles/f2 || true; \
 	    ${TESTDIR}/TestFiles/f1 || true; \
+	    ${TESTDIR}/TestFiles/f3 || true; \
 	else  \
 	    ./${TEST} || true; \
 	fi

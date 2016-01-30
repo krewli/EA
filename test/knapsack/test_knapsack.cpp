@@ -9,9 +9,9 @@
 
 #include "knapsack.h"
 
-namespace Knapsack
+namespace knapsack
 {
-    namespace Test
+    namespace test
     {
 
 	class KnapsackTestSuite : public testing::Test
