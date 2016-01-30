@@ -11,14 +11,13 @@
 namespace util
 {
 
-
     int get_random_integer( int lower_bound, int upper_bound, const Seed& seed )
     {
 	if ( lower_bound >= upper_bound )
 	{
 	    throw InvalidBoundError(lower_bound, upper_bound);
 	}
-	
+
 	auto random_generator = get_random_generator(seed);
 	std::uniform_int_distribution<> dist(lower_bound, upper_bound);
 	return dist(random_generator);
@@ -30,7 +29,7 @@ namespace util
 	{
 	    throw InvalidBoundError(lower_bound, upper_bound);
 	}
-	
+
 	auto random_generator = get_random_generator(seed);
 	std::uniform_real_distribution<> dist(lower_bound, upper_bound);
 	return dist(random_generator);
