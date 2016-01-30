@@ -28,6 +28,34 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <logicalFolder name="data" displayName="data" projectFiles="true">
+        <logicalFolder name="knapsack" displayName="knapsack" projectFiles="true">
+          <itemPath>data/knapsack/ks_10000_0</itemPath>
+          <itemPath>data/knapsack/ks_1000_0</itemPath>
+          <itemPath>data/knapsack/ks_100_0</itemPath>
+          <itemPath>data/knapsack/ks_100_1</itemPath>
+          <itemPath>data/knapsack/ks_100_2</itemPath>
+          <itemPath>data/knapsack/ks_106_0</itemPath>
+          <itemPath>data/knapsack/ks_19_0</itemPath>
+          <itemPath>data/knapsack/ks_200_0</itemPath>
+          <itemPath>data/knapsack/ks_200_1</itemPath>
+          <itemPath>data/knapsack/ks_300_0</itemPath>
+          <itemPath>data/knapsack/ks_30_0</itemPath>
+          <itemPath>data/knapsack/ks_3_0</itemPath>
+          <itemPath>data/knapsack/ks_400_0</itemPath>
+          <itemPath>data/knapsack/ks_40_0</itemPath>
+          <itemPath>data/knapsack/ks_45_0</itemPath>
+          <itemPath>data/knapsack/ks_4_0</itemPath>
+          <itemPath>data/knapsack/ks_500_0</itemPath>
+          <itemPath>data/knapsack/ks_50_0</itemPath>
+          <itemPath>data/knapsack/ks_50_1</itemPath>
+          <itemPath>data/knapsack/ks_60_0</itemPath>
+          <itemPath>data/knapsack/ks_82_0</itemPath>
+          <itemPath>data/knapsack/ks_lecture_dp_1</itemPath>
+          <itemPath>data/knapsack/ks_lecture_dp_2</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <itemPath>todo</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -77,6 +105,7 @@
   <sourceRootList>
     <Elem>src</Elem>
     <Elem>include</Elem>
+    <Elem>data</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -97,6 +126,52 @@
           <commandLine>-std=c++11</commandLine>
         </ccTool>
       </compileType>
+      <item path="data/knapsack/ks_10000_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_1000_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_100_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_100_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_100_2" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_106_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_19_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_200_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_200_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_300_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_30_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_3_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_400_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_40_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_45_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_4_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_500_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_50_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_50_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_60_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_82_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_lecture_dp_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_lecture_dp_2" ex="false" tool="3" flavor2="0">
+      </item>
       <folder path="TestFiles">
         <ccTool>
           <incDir>
@@ -251,6 +326,8 @@
       </item>
       <item path="test/utility/test_seed.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="todo" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -273,6 +350,52 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="data/knapsack/ks_10000_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_1000_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_100_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_100_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_100_2" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_106_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_19_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_200_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_200_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_300_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_30_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_3_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_400_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_40_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_45_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_4_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_500_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_50_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_50_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_60_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_82_0" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_lecture_dp_1" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="data/knapsack/ks_lecture_dp_2" ex="false" tool="3" flavor2="0">
+      </item>
       <folder path="TestFiles/f1">
         <cTool>
           <incDir>
@@ -384,6 +507,8 @@
       <item path="test/utility/test_random.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/utility/test_seed.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="todo" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

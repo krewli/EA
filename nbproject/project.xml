@@ -12,6 +12,7 @@
             <sourceRootList>
                 <sourceRootElem>src</sourceRootElem>
                 <sourceRootElem>include</sourceRootElem>
+                <sourceRootElem>data</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
