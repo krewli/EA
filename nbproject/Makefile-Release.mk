@@ -36,7 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/knapsack/knapsack_utility.o \
-	${OBJECTDIR}/src/main.o
+	${OBJECTDIR}/src/main.o \
+	${OBJECTDIR}/src/utility/random.o
 
 # Test Directory
 TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
@@ -53,6 +54,7 @@ TESTOBJECTFILES= \
 	${TESTDIR}/test/knapsack/test_knapsack_id.o \
 	${TESTDIR}/test/knapsack/test_knapsack_item.o \
 	${TESTDIR}/test/knapsack/test_knapsack_utility.o \
+	${TESTDIR}/test/utility/test_random.o \
 	${TESTDIR}/test/utility/test_seed.o
 
 # C Compiler Flags
@@ -89,6 +91,11 @@ ${OBJECTDIR}/src/main.o: src/main.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
 
+${OBJECTDIR}/src/utility/random.o: src/utility/random.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/utility
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/utility/random.o src/utility/random.cpp
+
 # Subprojects
 .build-subprojects:
 
@@ -104,7 +111,7 @@ ${TESTDIR}/TestFiles/f1: ${TESTDIR}/test/knapsack/test_knapsack.o ${TESTDIR}/tes
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} 
 
-${TESTDIR}/TestFiles/f3: ${TESTDIR}/test/utility/test_seed.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f3: ${TESTDIR}/test/utility/test_random.o ${TESTDIR}/test/utility/test_seed.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f3 $^ ${LDLIBSOPTIONS} 
 
@@ -131,6 +138,12 @@ ${TESTDIR}/test/knapsack/test_knapsack_utility.o: test/knapsack/test_knapsack_ut
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_utility.o test/knapsack/test_knapsack_utility.cpp
+
+
+${TESTDIR}/test/utility/test_random.o: test/utility/test_random.cpp 
+	${MKDIR} -p ${TESTDIR}/test/utility
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/utility/test_random.o test/utility/test_random.cpp
 
 
 ${TESTDIR}/test/utility/test_seed.o: test/utility/test_seed.cpp 
@@ -163,6 +176,19 @@ ${OBJECTDIR}/src/main_nomain.o: ${OBJECTDIR}/src/main.o src/main.cpp
 	    $(COMPILE.cc) -O2 -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main_nomain.o src/main.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/main_nomain.o;\
+	fi
+
+${OBJECTDIR}/src/utility/random_nomain.o: ${OBJECTDIR}/src/utility/random.o src/utility/random.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/utility
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/src/utility/random.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/utility/random_nomain.o src/utility/random.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/src/utility/random.o ${OBJECTDIR}/src/utility/random_nomain.o;\
 	fi
 
 # Run Test Targets

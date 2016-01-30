@@ -50,6 +50,11 @@ namespace knapsack
 	    return item_count_;
 	}
 	
+	double get_value_at(unsigned index) const
+	{
+	    return data_.at(index).get_value();
+	}
+	
 	bool operator==(const Knapsack& other) const
 	{
 	    return (capacity_ == other.capacity_ &&

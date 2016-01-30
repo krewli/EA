@@ -6,7 +6,9 @@
                    projectFiles="true">
       <logicalFolder name="include" displayName="include" projectFiles="true">
         <logicalFolder name="ga" displayName="ga" projectFiles="true">
+          <itemPath>include/ea/genetic_fitness.h</itemPath>
           <itemPath>include/ga/genetic_individual.h</itemPath>
+          <itemPath>include/ga/genetic_mutation.h</itemPath>
         </logicalFolder>
         <logicalFolder name="knapsack" displayName="knapsack" projectFiles="true">
           <itemPath>include/knapsack/knapsack.h</itemPath>
@@ -15,6 +17,8 @@
           <itemPath>include/knapsack/knapsack_utility.h</itemPath>
         </logicalFolder>
         <logicalFolder name="utility" displayName="utility" projectFiles="true">
+          <itemPath>include/utility/exception.h</itemPath>
+          <itemPath>include/utility/random.h</itemPath>
           <itemPath>include/utility/seed.h</itemPath>
         </logicalFolder>
       </logicalFolder>
@@ -29,6 +33,9 @@
       <logicalFolder name="src" displayName="src" projectFiles="true">
         <logicalFolder name="knapsack" displayName="knapsack" projectFiles="true">
           <itemPath>src/knapsack/knapsack_utility.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="utility" displayName="utility" projectFiles="true">
+          <itemPath>src/utility/random.cpp</itemPath>
         </logicalFolder>
         <itemPath>src/main.cpp</itemPath>
       </logicalFolder>
@@ -52,6 +59,7 @@
                      displayName="test_utility"
                      projectFiles="true"
                      kind="TEST">
+        <itemPath>test/utility/test_random.cpp</itemPath>
         <itemPath>test/utility/test_seed.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -172,7 +180,11 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <item path="include/ea/genetic_fitness.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/ga/genetic_individual.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/ga/genetic_mutation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/knapsack/knapsack.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -185,11 +197,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="include/utility/exception.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/utility/random.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/utility/seed.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/knapsack/knapsack_utility.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/utility/random.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -204,6 +222,8 @@
             ex="false"
             tool="1"
             flavor2="0">
+      </item>
+      <item path="test/utility/test_random.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/utility/test_seed.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -274,7 +294,11 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <item path="include/ea/genetic_fitness.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/ga/genetic_individual.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/ga/genetic_mutation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/knapsack/knapsack.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -287,11 +311,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="include/utility/exception.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/utility/random.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/utility/seed.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/knapsack/knapsack_utility.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/utility/random.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -306,6 +336,8 @@
             ex="false"
             tool="1"
             flavor2="0">
+      </item>
+      <item path="test/utility/test_random.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/utility/test_seed.cpp" ex="false" tool="1" flavor2="0">
       </item>
