@@ -13,32 +13,33 @@
 
 namespace knapsack
 {
+
     Knapsack read_knapsack( const std::string& filename )
     {
-	std::ifstream file { filename } ;
+	std::ifstream file { filename };
 
 	if ( !file )
 	{
-	    throw std::runtime_error("Could not open file " + filename + ".\n") ;
+	    throw std::runtime_error("Could not open file " + filename + ".\n");
 	}
 
-	unsigned capacity ;
-	unsigned number_of_items ;
+	unsigned capacity;
+	unsigned number_of_items;
 
-	file >> number_of_items >> capacity ;
+	file >> number_of_items >> capacity;
 
-	Knapsack::data_type items ;
+	Knapsack::data_type items;
 
-	int value, weight ;
+	int value, weight;
 
-	for ( unsigned i = 0 ; i < number_of_items ; i++ )
+	for ( unsigned i = 0; i < number_of_items; i++ )
 	{
-	    file >> value >> weight ;
-	    items.push_back(KnapsackItem { KnapsackID(i), value, weight }) ;
+	    file >> value >> weight;
+	    items.push_back(KnapsackItem { KnapsackID(i), value, weight });
 	}
 
-	file.close() ;
+	file.close();
 
-	return Knapsack { capacity, number_of_items, items } ;
+	return Knapsack { capacity, number_of_items, items };
     }
 }
