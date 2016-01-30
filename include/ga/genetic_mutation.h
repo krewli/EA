@@ -30,27 +30,11 @@ namespace ga
 	using chromosome_type = chromosome_t;
 
 	static chromosome_type mutate(const chromosome_type& chromosome,
-				unsigned double probability,
-				const util::Seed& seed)
-	{
-	    unsigned seed_counter = 0;
-	    util::Seed internal_seed = seed;
-
-	    chromosome_type new_chromosome = chromosome;
-
-	    std::for_each(std::begin(new_chromosome), std::end(new_chromosome),
-		    [&](genotype& gene)
-		    {
-			if (internal_seed != util::NO_SEED)
-			    internal_seed += seed_counter++;
-			gene = mutate_gene(gene, probability, internal_seed);
-		    });
-
-	    return new_chromosome;
-	}
+				double probability,
+				const util::Seed& seed);
 
 	static genotype mutate_gene(const genotype& gene,
-				unsigned double probability,
+				double probability,
 				const util::Seed& seed);
     };
 }

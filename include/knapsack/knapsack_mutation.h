@@ -24,7 +24,7 @@ namespace knapsack
     {
 
 	static chromosome_type mutate(const chromosome_type& chromosome,
-				unsigned double probability,
+				double probability,
 				const util::Seed & seed = util::NO_SEED)
 	{
 	    unsigned seed_counter = 0;
