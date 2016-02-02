@@ -30,7 +30,7 @@ namespace ga
 	    void SetUp( )
 	    {
 		// Setup ...
-		knapsack_individual = new GeneticKnapsackIndividual();
+		knapsack_individual = new GeneticKnapsackIndividual(5);
 	    }
 
 	    void TearDown( )
@@ -41,7 +41,6 @@ namespace ga
 
 	    using GeneticKnapsackIndividual =
 		    GeneticIndividual <
-		    5,
 		    bool,
 		    std::vector<bool>,
 		    knapsack::Knapsack,
@@ -104,15 +103,15 @@ namespace ga
 	    {
 		Knapsack knapsack = read_knapsack("data/knapsack/ks_3_0");
 
-		KnapsackFitness::chromosome_type chromosome1 { true, false, true };
+		KnapsackFitness::chromosome_type chromosome1 { true, false, true, false, false };
 		knapsack_individual->set_chromosome(chromosome1);
 		EXPECT_EQ(80, knapsack_individual->fitness(knapsack));
 
-		KnapsackFitness::chromosome_type chromosome2 { false, false, false };
+		KnapsackFitness::chromosome_type chromosome2 { false, false, false, false, false };
 		knapsack_individual->set_chromosome(chromosome2);
 		EXPECT_EQ(0, knapsack_individual->fitness(knapsack));
 
-		KnapsackFitness::chromosome_type chromosome3 { true, true, true };
+		KnapsackFitness::chromosome_type chromosome3 { true, true, true, false, false };
 		knapsack_individual->set_chromosome(chromosome3);
 		EXPECT_EQ(128, knapsack_individual->fitness(knapsack));
 	    }
@@ -121,6 +120,12 @@ namespace ga
 		std::cout << "Runtime error: " << e.what() << std::endl;
 		FAIL();
 	    }
+	}
+	
+	TEST_F(KnapsackGeneticIndividualTestSuite, test_exception_handling )
+	{
+	    chromosome_type chromosome{true, false, true};
+	    EXPECT_THROW(knapsack_individual->set_chromosome(chromosome), InvalidChromosomeSize);
 	}
     }
 }

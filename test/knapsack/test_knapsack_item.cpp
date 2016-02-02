@@ -31,7 +31,7 @@ namespace knapsack
 	    KnapsackItem item3 { KnapsackID(1), 200, 100 };
 	};
 
-	TEST_F( KnapsackItemTestSuite, test_access_functions )
+	TEST_F( KnapsackItemTestSuite, test_getters_functions )
 	{
 	    EXPECT_EQ(200, item1.get_value());
 	    EXPECT_EQ(100, item1.get_weight());

@@ -14,13 +14,15 @@
 #ifndef GENETIC_INDIVIDUAL_H
 #define GENETIC_INDIVIDUAL_H
 
+#include "genetic_exception.h"
+
 #include "seed.h"
+#include "exception.h"
 
 namespace ga
 {
 
     template<
-    unsigned size_t,
     typename gene_t,
     typename chromosome_t,
     typename problem_t,
@@ -36,8 +38,8 @@ namespace ga
 	using mutation_policy = mutation_p;
 	using fitness_policy = fitness_p;
 
-	GeneticIndividual()
-	: size_{ size_t }, chromosome_{ chromosome_encoding(size_t) }, seed_{ util::NO_SEED }
+	GeneticIndividual(unsigned size)
+	: size_{ size }, chromosome_{ chromosome_encoding(size) }, seed_{ util::NO_SEED }
 	{
 	}
 
@@ -75,6 +77,10 @@ namespace ga
 
 	void set_chromosome(const chromosome_encoding& chromosome)
 	{
+	    if (chromosome.size() != size_) {
+		throw InvalidChromosomeSize(chromosome.size(), size_);
+	    }
+
 	    chromosome_ = chromosome;
 	}
 

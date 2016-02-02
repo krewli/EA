@@ -28,7 +28,7 @@ namespace knapsack
 
 	};
 
-	TEST_F( KnapsackTestSuite, test_access_functions )
+	TEST_F( KnapsackTestSuite, test_getters_functions )
 	{
 	    unsigned expected_capacity = 100;
 	    unsigned expected_item_count = 10;

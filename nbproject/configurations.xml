@@ -6,7 +6,9 @@
                    projectFiles="true">
       <logicalFolder name="include" displayName="include" projectFiles="true">
         <logicalFolder name="ga" displayName="ga" projectFiles="true">
+          <itemPath>include/ga/genetic_exception.h</itemPath>
           <itemPath>include/ga/genetic_fitness.h</itemPath>
+          <itemPath>include/ga/genetic_generation.h</itemPath>
           <itemPath>include/ga/genetic_individual.h</itemPath>
           <itemPath>include/ga/genetic_mutation.h</itemPath>
         </logicalFolder>
@@ -260,7 +262,11 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <item path="include/ga/genetic_exception.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/ga/genetic_fitness.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/ga/genetic_generation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/ga/genetic_individual.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -447,7 +453,11 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <item path="include/ga/genetic_exception.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/ga/genetic_fitness.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/ga/genetic_generation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/ga/genetic_individual.h" ex="false" tool="3" flavor2="0">
       </item>
