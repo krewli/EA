@@ -7,21 +7,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/krewli/Desktop/Git/EA/include/knapsack/knapsack_mutation.h</file>
+            <file>file:/home/krewli/Desktop/Git/EA/include/knapsack/knapsack_alias.h</file>
             <file>file:/home/krewli/Desktop/Git/EA/include/ga/genetic_individual.h</file>
-            <file>file:/home/krewli/Desktop/Git/EA/src/utility/random.cpp</file>
-            <file>file:/home/krewli/Desktop/Git/EA/test/knapsack/test_knapsack_id.cpp</file>
-            <file>file:/home/krewli/Desktop/Git/EA/test/knapsack/test_knapsack_fitness.cpp</file>
             <file>file:/home/krewli/Desktop/Git/EA/include/ga/genetic_mutation.h</file>
-            <file>file:/home/krewli/Desktop/Git/EA/todo</file>
-            <file>file:/home/krewli/Desktop/Git/EA/include/utility/seed.h</file>
-            <file>file:/home/krewli/Desktop/Git/EA/test/knapsack/test_knapsack_mutation.cpp</file>
-            <file>file:/home/krewli/Desktop/Git/EA/include/utility/exception.h</file>
-            <file>file:/home/krewli/Desktop/Git/EA/include/ga/genetic_fitness.h</file>
-            <file>file:/home/krewli/Desktop/Git/EA/include/utility/random.h</file>
-            <file>file:/home/krewli/Desktop/Git/EA/src/knapsack/knapsack_utility.cpp</file>
             <file>file:/home/krewli/Desktop/Git/EA/include/knapsack/knapsack_fitness.h</file>
-            <file>file:/home/krewli/Desktop/Git/EA/include/knapsack/knapsack.h</file>
         </group>
     </open-files>
 </project-private>
