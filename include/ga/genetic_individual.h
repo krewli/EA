@@ -16,28 +16,28 @@
 
 #include "seed.h"
 
-namespace GA
+namespace ga
 {
 
     template<
-    unsigned size,
-    typename genotype,
-    typename chromosome,
-    typename problem,
-    class mutation,
-    class fitness
+    unsigned size_t,
+    typename gene_t,
+    typename chromosome_t,
+    typename problem_t,
+    class mutation_p,
+    class fitness_p
     >
     class GeneticIndividual
     {
     public:
-	using genotype_encoding = genotype;
-	using chromosome_encoding = chromosome<genotype>;
-	using problem_type = problem;
-	using mutation_policy = mutation;
-	using fitness_policy = fitness;
+	using genotype_encoding = gene_t;
+	using chromosome_encoding = chromosome_t;
+	using problem_type = problem_t;
+	using mutation_policy = mutation_p;
+	using fitness_policy = fitness_p;
 
 	GeneticIndividual()
-	: size_{ size }, chromosome_{ chromosome_encoding(size) }, seed_{ util::NO_SEED }
+	: size_{ size_t }, chromosome_{ chromosome_encoding(size_t) }, seed_{ util::NO_SEED }
 	{
 	}
 
@@ -66,6 +66,11 @@ namespace GA
 	chromosome_encoding get_chromosome() const
 	{
 	    return chromosome_;
+	}
+
+	util::Seed get_seed() const
+	{
+	    return seed_;
 	}
 
 	void set_chromosome(const chromosome_encoding& chromosome)

@@ -75,6 +75,7 @@
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
       <logicalFolder name="f2" displayName="test_ga" projectFiles="true" kind="TEST">
+        <itemPath>test/ga/test_knapsack_genetic_individual.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1"
                      displayName="test_knapsack"
@@ -298,6 +299,11 @@
       </item>
       <item path="src/utility/random.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="test/ga/test_knapsack_genetic_individual.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="test/knapsack/test_knapsack.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack_fitness.cpp"
@@ -479,6 +485,11 @@
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/utility/random.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="test/ga/test_knapsack_genetic_individual.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -37,7 +37,7 @@ namespace knapsack
 	TEST_F( KnapsackMutationTestSuite, test_mutation_with_full_probability )
 	{
 	    KnapsackMutation::chromosome_type expected_result { false, true, false, false, true };
-	    EXPECT_EQ(expected_result, KnapsackMutation::mutate(chromosome, 1));
+	    EXPECT_EQ(expected_result, KnapsackMutation::mutate(chromosome, 1.0, util::Seed(0)));
 	}
 
 	TEST_F( KnapsackMutationTestSuite, test_mutation_with_zero_probability )
