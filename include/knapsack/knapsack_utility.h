@@ -14,8 +14,9 @@
 #ifndef KNAPSACK_UTILITIES_H
 #define KNAPSACK_UTILITIES_H
 
-#include "knapsack.h"
 #include <string>
+
+#include "knapsack.h"
 
 namespace knapsack
 {

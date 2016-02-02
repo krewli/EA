@@ -1,4 +1,2 @@
-TODO: Implement GeneticGeneration class
-TODO: Test GeneticGeneration class with knapsack examples
-TODO: Implement selection struct
-TODO: Implement crossover struct
+TODO: Test KnapsackRouletteWheel selection policy
+TODO: Test KnapsackRandomPoint crossover policy

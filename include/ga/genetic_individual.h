@@ -17,7 +17,7 @@
 #include "genetic_exception.h"
 
 #include "seed.h"
-#include "exception.h"
+#include "util_exception.h"
 
 namespace ga
 {
@@ -42,9 +42,9 @@ namespace ga
 	: size_{ size }, seed_{ util::NO_SEED }
 	{
 	}
-	
+
 	GeneticIndividual(unsigned size, const chromosome_encoding& chromosome)
-	: size_{ size }, chromosome_{chromosome}, seed_{ util::NO_SEED }
+	: size_{ size }, chromosome_{ chromosome }, seed_{ util::NO_SEED }
 	{
 	}
 
@@ -83,7 +83,7 @@ namespace ga
 	void set_chromosome(const chromosome_encoding& chromosome)
 	{
 	    if (chromosome.size() != size_) {
-		throw InvalidChromosomeSize{chromosome.size(), size_};
+		throw InvalidChromosomeSize(chromosome.size(), size_);
 	    }
 
 	    chromosome_ = chromosome;

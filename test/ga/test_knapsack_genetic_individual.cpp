@@ -12,6 +12,7 @@
 #include "genetic_individual.h"
 
 #include "knapsack.h"
+#include "knapsack_alias.h"
 #include "knapsack_mutation.h"
 #include "knapsack_fitness.h"
 #include "knapsack_utility.h"
@@ -39,13 +40,7 @@ namespace ga
 		delete knapsack_individual;
 	    }
 
-	    using GeneticKnapsackIndividual =
-		    GeneticIndividual <
-		    bool,
-		    std::vector<bool>,
-		    knapsack::Knapsack,
-		    knapsack::KnapsackMutation,
-		    knapsack::KnapsackFitness>;
+	    using GeneticKnapsackIndividual = knapsack::knapsack_individual;
 	    using chromosome_type =
 		    GeneticKnapsackIndividual::chromosome_encoding;
 
