@@ -39,7 +39,12 @@ namespace ga
 	using fitness_policy = fitness_p;
 
 	GeneticIndividual(unsigned size)
-	: size_{ size }, chromosome_{ chromosome_encoding(size) }, seed_{ util::NO_SEED }
+	: size_{ size }, seed_{ util::NO_SEED }
+	{
+	}
+	
+	GeneticIndividual(unsigned size, const chromosome_encoding& chromosome)
+	: size_{ size }, chromosome_{chromosome}, seed_{ util::NO_SEED }
 	{
 	}
 
@@ -78,7 +83,7 @@ namespace ga
 	void set_chromosome(const chromosome_encoding& chromosome)
 	{
 	    if (chromosome.size() != size_) {
-		throw InvalidChromosomeSize(chromosome.size(), size_);
+		throw InvalidChromosomeSize{chromosome.size(), size_};
 	    }
 
 	    chromosome_ = chromosome;

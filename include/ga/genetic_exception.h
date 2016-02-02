@@ -59,6 +59,20 @@ namespace ga
 
 	~InvalidChromosomeSize() override = default;
     };
+    
+    class InvalidGenerationSize : public GeneticException
+    {
+    public:
+
+	explicit InvalidGenerationSize(int actual_size, int expected_size)
+	: GeneticException(std::string{ "(" + std::to_string(actual_size) + ")" +
+			" does not match the expected size (" +
+			std::to_string(expected_size) + ")." })
+	{
+	}
+
+	~InvalidGenerationSize() override = default;
+    };
 
 }
 
