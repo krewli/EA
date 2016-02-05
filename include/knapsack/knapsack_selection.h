@@ -15,7 +15,7 @@
 #define KNAPSACK_SELECTION_H
 
 #include "knapsack.h"
-#include "knapsack_crossover.h"
+#include "knapsack_individual_alias.h"
 
 #include "genetic_selection.h"
 
@@ -23,16 +23,15 @@
 
 namespace knapsack
 {
-
-    template<typename individual_t, typename generation_t>
     struct KnapsackRouletteWheel
     :
-    public ga::Selection<individual_t,
-    generation_t,
+    public ga::Selection<
+    knapsack_individual,
+    knapsack_generation_type,
     Knapsack>
     {
-	using individual_type = individual_t;
-	using generation_type = generation_t;
+	using individual_type = knapsack_individual;
+	using generation_type = knapsack_generation_type;
 	using problem_type = Knapsack;
 
 	static individual_type select(const generation_type& generation,

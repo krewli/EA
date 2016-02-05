@@ -21,8 +21,6 @@
 #include "random.h"
 #include "seed.h"
 
-#include <iostream>
-
 namespace knapsack
 {
 
@@ -50,7 +48,8 @@ namespace knapsack
 
 	static int get_cross_point(int upper_bound, const util::Seed & seed)
 	{
-	    return util::get_random_integer(1, upper_bound - 2, seed);;
+	    return util::get_random_integer(1, upper_bound - 2, seed);
+	    ;
 	}
 
 	static individual_type child(const individual_type& parent1,

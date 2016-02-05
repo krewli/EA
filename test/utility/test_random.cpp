@@ -41,7 +41,7 @@ namespace util
 	
 	TEST_F(RandomTestSuite, test_exception_handling)
 	{
-	    EXPECT_THROW(get_random_real(0, 0), InvalidBoundError);
+	    EXPECT_THROW(get_random_real(0, -1), InvalidBoundError);
 	    EXPECT_THROW(get_random_integer(10, 5), InvalidBoundError);
 	}
     }

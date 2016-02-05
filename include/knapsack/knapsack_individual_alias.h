@@ -11,8 +11,8 @@
  * Created on February 3, 2016, 12:11 AM
  */
 
-#ifndef KNAPSACK_ALIAS_H
-#define KNAPSACK_ALIAS_H
+#ifndef KNAPSACK_INDIVIDUAL_ALIAS_H
+#define KNAPSACK_INDIVIDUAL_ALIAS_H
 
 #include "knapsack.h"
 #include "knapsack_mutation.h"
@@ -28,7 +28,9 @@ namespace knapsack
 	    Knapsack,
 	    KnapsackMutation,
 	    KnapsackFitness>;
+
+    using knapsack_generation_type = std::vector<knapsack_individual>;
 }
 
-#endif /* KNAPSACK_ALIAS_H */
+#endif /* KNAPSACK_INDIVIDUAL_ALIAS_H */
 

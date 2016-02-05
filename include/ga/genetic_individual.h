@@ -88,6 +88,18 @@ namespace ga
 	{
 	    seed_ = seed;
 	}
+	
+	bool operator==(const GeneticIndividual& other) const
+	{
+	    return (size_ == other.size_ && 
+		    chromosome_ == other.chromosome_ &&
+		    seed_ == other.seed_);
+	}
+	
+	bool operator!=(const GeneticIndividual& other) const
+	{
+	    return !(*this == other);
+	}
 
     protected:
 

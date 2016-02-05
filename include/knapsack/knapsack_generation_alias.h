@@ -22,19 +22,11 @@
 
 namespace knapsack
 {
-    using knapsack_generation_type = std::vector<knapsack_individual>;
-
-    using knapsack_roulette_wheel = KnapsackRouletteWheel<
-	    knapsack_individual,
-	    knapsack_generation_type>;
-
-    using knapsack_random_point = KnapsackRandomPoint<knapsack_individual>;
-
     using knapsack_generation = ga::GeneticGeneration<
 	    knapsack_individual,
 	    knapsack_generation_type,
-	    knapsack_roulette_wheel,
-	    knapsack_random_point>;
+	    KnapsackRouletteWheel,
+	    KnapsackRandomPoint>;
 
 }
 
