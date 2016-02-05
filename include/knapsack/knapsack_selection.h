@@ -31,6 +31,9 @@ namespace knapsack
     generation_t,
     Knapsack>
     {
+	using individual_type = individual_t;
+	using generation_type = generation_t;
+	using problem_type = Knapsack;
 
 	static individual_type select(const generation_type& generation,
 				const problem_type& problem,

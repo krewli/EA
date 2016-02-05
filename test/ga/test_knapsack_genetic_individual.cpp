@@ -12,7 +12,7 @@
 #include "genetic_individual.h"
 
 #include "knapsack.h"
-#include "knapsack_alias.h"
+#include "knapsack_individual_alias.h"
 #include "knapsack_mutation.h"
 #include "knapsack_fitness.h"
 #include "knapsack_utility.h"

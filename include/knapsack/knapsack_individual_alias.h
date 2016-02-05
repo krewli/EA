@@ -19,7 +19,6 @@
 #include "knapsack_fitness.h"
 
 #include "genetic_individual.h"
-#include "genetic_generation.h"
 
 namespace knapsack
 {
@@ -29,12 +28,6 @@ namespace knapsack
 	    Knapsack,
 	    KnapsackMutation,
 	    KnapsackFitness>;
-
-    using knapsack_generation = ga::GeneticGeneration<knapsack_individual,
-	    std::vector<knapsack_individual>,
-	    KnapsackRouletteWheel,
-	    KnapsackRandomPoint>;
-
 }
 
 #endif /* KNAPSACK_ALIAS_H */

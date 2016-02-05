@@ -25,7 +25,7 @@ namespace ga
 	using individual_type = individual_t;
 	using return_type = return_t;
 
-	static return_type children(const individual_type& parent1,
+	static return_type offspring(const individual_type& parent1,
 				const individual_type& parent2,
 				const util::Seed& seed);
     };

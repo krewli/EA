@@ -13,7 +13,7 @@ namespace util
 
     int get_random_integer( int lower_bound, int upper_bound, const Seed& seed )
     {
-	if ( lower_bound >= upper_bound )
+	if ( lower_bound > upper_bound )
 	{
 	    throw InvalidBoundError(lower_bound, upper_bound);
 	}
@@ -25,7 +25,7 @@ namespace util
 
     double get_random_real( int lower_bound, int upper_bound, const Seed& seed )
     {
-	if ( lower_bound >= upper_bound )
+	if ( lower_bound > upper_bound )
 	{
 	    throw InvalidBoundError(lower_bound, upper_bound);
 	}

@@ -36,11 +36,6 @@ namespace ga
 	{
 	}
 
-	GeneticGeneration(unsigned size, const generation_type& generation)
-	: size_{ size }, generation_{ generation }, seed_{ util::NO_SEED }
-	{
-	}
-
 	~GeneticGeneration() = default;
 
 	unsigned get_size() const

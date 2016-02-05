@@ -14,22 +14,25 @@
 #ifndef KNAPSACK_CROSSOVER_H
 #define KNAPSACK_CROSSOVER_H
 
+#include "knapsack_individual_alias.h"
+
 #include "genetic_crossover.h"
 
 #include "random.h"
 #include "seed.h"
 
+#include <iostream>
+
 namespace knapsack
 {
 
-    template<typename individual_t>
     struct KnapsackRandomPoint
     :
-    public ga::Crossover<individual_t,
-    std::vector<individual_t>>
+    public ga::Crossover<knapsack_individual,
+    std::vector<knapsack_individual>>
     {
 
-	static return_type children(const individual_type& parent1,
+	static return_type offspring(const individual_type& parent1,
 				const individual_type& parent2,
 				const util::Seed & seed)
 	{
@@ -37,17 +40,17 @@ namespace knapsack
 
 	    int cross_point = get_cross_point(parent1.get_size(), seed);
 
-	    return_type children;
+	    return_type offspring;
 
-	    children.push_back(child(parent1, parent2, cross_point));
-	    children.push_back(child(parent2, parent1, cross_point));
+	    offspring.push_back(child(parent1, parent2, cross_point));
+	    offspring.push_back(child(parent2, parent1, cross_point));
 
-	    return children;
+	    return offspring;
 	}
 
 	static int get_cross_point(int upper_bound, const util::Seed & seed)
 	{
-	    return util::get_random_integer(1, upper_bound - 2, seed);
+	    return util::get_random_integer(1, upper_bound - 2, seed);;
 	}
 
 	static individual_type child(const individual_type& parent1,

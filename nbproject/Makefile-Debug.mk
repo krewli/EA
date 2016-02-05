@@ -50,12 +50,15 @@ TESTFILES= \
 
 # Test Object Files
 TESTOBJECTFILES= \
+	${TESTDIR}/test/ga/test_knapsack_genetic_generation.o \
 	${TESTDIR}/test/ga/test_knapsack_genetic_individual.o \
 	${TESTDIR}/test/knapsack/test_knapsack.o \
+	${TESTDIR}/test/knapsack/test_knapsack_crossover.o \
 	${TESTDIR}/test/knapsack/test_knapsack_fitness.o \
 	${TESTDIR}/test/knapsack/test_knapsack_id.o \
 	${TESTDIR}/test/knapsack/test_knapsack_item.o \
 	${TESTDIR}/test/knapsack/test_knapsack_mutation.o \
+	${TESTDIR}/test/knapsack/test_knapsack_selection.o \
 	${TESTDIR}/test/knapsack/test_knapsack_utility.o \
 	${TESTDIR}/test/utility/test_random.o \
 	${TESTDIR}/test/utility/test_seed.o
@@ -108,17 +111,23 @@ ${OBJECTDIR}/src/utility/random.o: src/utility/random.cpp
 	cd ../../../c++_libraries/gtest && ${MAKE}  -f Makefile CONF=Debug
 	cd ../../../c++_libraries/gtest && ${MAKE}  -f Makefile CONF=Debug
 
-${TESTDIR}/TestFiles/f2: ${TESTDIR}/test/ga/test_knapsack_genetic_individual.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f2: ${TESTDIR}/test/ga/test_knapsack_genetic_generation.o ${TESTDIR}/test/ga/test_knapsack_genetic_individual.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc} -pthread  -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS} ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a 
 
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/test/knapsack/test_knapsack.o ${TESTDIR}/test/knapsack/test_knapsack_fitness.o ${TESTDIR}/test/knapsack/test_knapsack_id.o ${TESTDIR}/test/knapsack/test_knapsack_item.o ${TESTDIR}/test/knapsack/test_knapsack_mutation.o ${TESTDIR}/test/knapsack/test_knapsack_utility.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/test/knapsack/test_knapsack.o ${TESTDIR}/test/knapsack/test_knapsack_crossover.o ${TESTDIR}/test/knapsack/test_knapsack_fitness.o ${TESTDIR}/test/knapsack/test_knapsack_id.o ${TESTDIR}/test/knapsack/test_knapsack_item.o ${TESTDIR}/test/knapsack/test_knapsack_mutation.o ${TESTDIR}/test/knapsack/test_knapsack_selection.o ${TESTDIR}/test/knapsack/test_knapsack_utility.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc} -pthread -pthread -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a 
 
 ${TESTDIR}/TestFiles/f3: ${TESTDIR}/test/utility/test_random.o ${TESTDIR}/test/utility/test_seed.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc} -pthread  -o ${TESTDIR}/TestFiles/f3 $^ ${LDLIBSOPTIONS} ../../../c++_libraries/gtest/dist/Debug/GNU-Linux/libgtest.a 
+
+
+${TESTDIR}/test/ga/test_knapsack_genetic_generation.o: test/ga/test_knapsack_genetic_generation.cpp 
+	${MKDIR} -p ${TESTDIR}/test/ga
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/ga/test_knapsack_genetic_generation.o test/ga/test_knapsack_genetic_generation.cpp
 
 
 ${TESTDIR}/test/ga/test_knapsack_genetic_individual.o: test/ga/test_knapsack_genetic_individual.cpp 
@@ -131,6 +140,12 @@ ${TESTDIR}/test/knapsack/test_knapsack.o: test/knapsack/test_knapsack.cpp
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack.o test/knapsack/test_knapsack.cpp
+
+
+${TESTDIR}/test/knapsack/test_knapsack_crossover.o: test/knapsack/test_knapsack_crossover.cpp 
+	${MKDIR} -p ${TESTDIR}/test/knapsack
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_crossover.o test/knapsack/test_knapsack_crossover.cpp
 
 
 ${TESTDIR}/test/knapsack/test_knapsack_fitness.o: test/knapsack/test_knapsack_fitness.cpp 
@@ -155,6 +170,12 @@ ${TESTDIR}/test/knapsack/test_knapsack_mutation.o: test/knapsack/test_knapsack_m
 	${MKDIR} -p ${TESTDIR}/test/knapsack
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_mutation.o test/knapsack/test_knapsack_mutation.cpp
+
+
+${TESTDIR}/test/knapsack/test_knapsack_selection.o: test/knapsack/test_knapsack_selection.cpp 
+	${MKDIR} -p ${TESTDIR}/test/knapsack
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Iinclude/knapsack -Iinclude/ga -Iinclude/utility -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -I../../../c++_libraries/googletest-master/googletest -I../../../c++_libraries/googletest-master/googletest/include -std=c++11 -std=c++11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/test/knapsack/test_knapsack_selection.o test/knapsack/test_knapsack_selection.cpp
 
 
 ${TESTDIR}/test/knapsack/test_knapsack_utility.o: test/knapsack/test_knapsack_utility.cpp 

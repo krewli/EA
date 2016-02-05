@@ -54,7 +54,7 @@ namespace knapsack
 
 	TEST_F( KnapsackUtilityTestSuite, test_exception_throwing_when_reading_from_file_that_does_not_exist )
 	{
-	    EXPECT_THROW(read_knapsack("ks_3_0"), std::runtime_error);
+	    EXPECT_THROW(read_knapsack("this_file_does_not_exist"), std::runtime_error);
 	}
     }
 }

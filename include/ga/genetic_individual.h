@@ -43,11 +43,6 @@ namespace ga
 	{
 	}
 
-	GeneticIndividual(unsigned size, const chromosome_encoding& chromosome)
-	: size_{ size }, chromosome_{ chromosome }, seed_{ util::NO_SEED }
-	{
-	}
-
 	GeneticIndividual(const GeneticIndividual&) = default;
 	GeneticIndividual(GeneticIndividual&&) = default;
 

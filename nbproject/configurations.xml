@@ -16,10 +16,11 @@
         </logicalFolder>
         <logicalFolder name="knapsack" displayName="knapsack" projectFiles="true">
           <itemPath>include/knapsack/knapsack.h</itemPath>
-          <itemPath>include/knapsack/knapsack_alias.h</itemPath>
           <itemPath>include/knapsack/knapsack_crossover.h</itemPath>
           <itemPath>include/knapsack/knapsack_fitness.h</itemPath>
+          <itemPath>include/knapsack/knapsack_generation_alias.h</itemPath>
           <itemPath>include/knapsack/knapsack_id.h</itemPath>
+          <itemPath>include/knapsack/knapsack_individual_alias.h</itemPath>
           <itemPath>include/knapsack/knapsack_item.h</itemPath>
           <itemPath>include/knapsack/knapsack_mutation.h</itemPath>
           <itemPath>include/knapsack/knapsack_selection.h</itemPath>
@@ -82,6 +83,7 @@
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
       <logicalFolder name="f2" displayName="test_ga" projectFiles="true" kind="TEST">
+        <itemPath>test/ga/test_knapsack_genetic_generation.cpp</itemPath>
         <itemPath>test/ga/test_knapsack_genetic_individual.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1"
@@ -89,10 +91,12 @@
                      projectFiles="true"
                      kind="TEST">
         <itemPath>test/knapsack/test_knapsack.cpp</itemPath>
+        <itemPath>test/knapsack/test_knapsack_crossover.cpp</itemPath>
         <itemPath>test/knapsack/test_knapsack_fitness.cpp</itemPath>
         <itemPath>test/knapsack/test_knapsack_id.cpp</itemPath>
         <itemPath>test/knapsack/test_knapsack_item.cpp</itemPath>
         <itemPath>test/knapsack/test_knapsack_mutation.cpp</itemPath>
+        <itemPath>test/knapsack/test_knapsack_selection.cpp</itemPath>
         <itemPath>test/knapsack/test_knapsack_utility.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3"
@@ -283,8 +287,6 @@
       </item>
       <item path="include/knapsack/knapsack.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/knapsack/knapsack_alias.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/knapsack/knapsack_crossover.h"
             ex="false"
             tool="3"
@@ -295,7 +297,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="include/knapsack/knapsack_generation_alias.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="include/knapsack/knapsack_id.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/knapsack/knapsack_individual_alias.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_item.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -326,12 +338,22 @@
       </item>
       <item path="src/utility/random.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="test/ga/test_knapsack_genetic_generation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="test/ga/test_knapsack_genetic_individual.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="test/knapsack/test_knapsack_crossover.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack_fitness.cpp"
             ex="false"
@@ -346,6 +368,11 @@
             flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack_mutation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="test/knapsack/test_knapsack_selection.cpp"
             ex="false"
             tool="1"
             flavor2="0">
@@ -490,8 +517,6 @@
       </item>
       <item path="include/knapsack/knapsack.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/knapsack/knapsack_alias.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/knapsack/knapsack_crossover.h"
             ex="false"
             tool="3"
@@ -502,7 +527,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="include/knapsack/knapsack_generation_alias.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="include/knapsack/knapsack_id.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/knapsack/knapsack_individual_alias.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_item.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -533,12 +568,22 @@
       </item>
       <item path="src/utility/random.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="test/ga/test_knapsack_genetic_generation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="test/ga/test_knapsack_genetic_individual.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="test/knapsack/test_knapsack_crossover.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack_fitness.cpp"
             ex="false"
@@ -553,6 +598,11 @@
             flavor2="0">
       </item>
       <item path="test/knapsack/test_knapsack_mutation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="test/knapsack/test_knapsack_selection.cpp"
             ex="false"
             tool="1"
             flavor2="0">
