@@ -1,2 +1,4 @@
 TODO: Make sure that individuals have valid chromosomes 
       that does not go over the capacity cap
+TODO: Rewrite chromosome_type and phenotype to classes instead 
+      with abstract genetic classes for both.

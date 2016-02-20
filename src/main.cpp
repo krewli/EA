@@ -36,7 +36,7 @@ int main( int argc, char** argv )
     {
 	Knapsack knapsack = read_knapsack("data/knapsack/ks_30_0");
 
-	knapsack_generation solution = knapsack_genetic_solve(1000, 100, 0.1, knapsack);
+	knapsack_generation solution = knapsack_genetic_solve(100, 100, 0.1, knapsack);
 
 	for ( const auto& child : solution.get_generation() )
 	{
