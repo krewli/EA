@@ -17,11 +17,21 @@
 #include <string>
 
 #include "knapsack.h"
+#include "knapsack_individual_alias.h"
+#include "knapsack_generation_alias.h"
+
+#include "seed.h"
 
 namespace knapsack
 {
     // filenames ks_30_0, ks_50_0, ks_200_0, ks_400_0, ks_1000_0, ks_10000_0
     Knapsack read_knapsack(const std::string& filename);
+    knapsack_individual::chromosome_encoding generate_chromosome(unsigned size);
+    knapsack_individual generate_random_individual(const Knapsack& knapsack, 
+						   const util::Seed& seed = util::NO_SEED);
+    knapsack_generation generate_random_generation(unsigned size,
+						   const Knapsack& knapsack,
+						   const util::Seed& seed = util::NO_SEED);
 }
 
 

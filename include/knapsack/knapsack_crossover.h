@@ -14,6 +14,8 @@
 #ifndef KNAPSACK_CROSSOVER_H
 #define KNAPSACK_CROSSOVER_H
 
+#include <assert.h>
+
 #include "knapsack_individual_alias.h"
 
 #include "genetic_crossover.h"

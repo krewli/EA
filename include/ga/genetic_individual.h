@@ -45,6 +45,9 @@ namespace ga
 
 	GeneticIndividual(const GeneticIndividual&) = default;
 	GeneticIndividual(GeneticIndividual&&) = default;
+	
+	GeneticIndividual& operator=(const GeneticIndividual&) = default;
+	GeneticIndividual& operator=(GeneticIndividual&&) = default;
 
 	~GeneticIndividual() = default;
 
@@ -104,12 +107,10 @@ namespace ga
     protected:
 
     private:
-	const unsigned size_;
+	unsigned size_;
 	chromosome_encoding chromosome_;
 	util::Seed seed_;
 
-	GeneticIndividual& operator=(const GeneticIndividual&) = delete;
-	GeneticIndividual& operator=(GeneticIndividual&&) = delete;
     };
 }
 

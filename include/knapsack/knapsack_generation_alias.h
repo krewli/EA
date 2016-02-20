@@ -25,6 +25,7 @@ namespace knapsack
     using knapsack_generation = ga::GeneticGeneration<
 	    knapsack_individual,
 	    knapsack_generation_type,
+	    Knapsack,
 	    KnapsackRouletteWheel,
 	    KnapsackRandomPoint>;
 
