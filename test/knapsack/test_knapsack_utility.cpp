@@ -106,12 +106,12 @@ namespace knapsack
 
 		knapsack_generation_type expected_result { id1, id2, id3 };
 
-		EXPECT_EQ(expected_result.at(0).get_chromosome(), 
-			 actual_result.get_generation().at(0).get_chromosome());
-		EXPECT_EQ(expected_result.at(1).get_chromosome(), 
-			 actual_result.get_generation().at(1).get_chromosome());
-		EXPECT_EQ(expected_result.at(2).get_chromosome(), 
-			 actual_result.get_generation().at(2).get_chromosome());
+		EXPECT_EQ(expected_result.at(0).get_chromosome(),
+			actual_result.get_generation().at(0).get_chromosome());
+		EXPECT_EQ(expected_result.at(1).get_chromosome(),
+			actual_result.get_generation().at(1).get_chromosome());
+		EXPECT_EQ(expected_result.at(2).get_chromosome(),
+			actual_result.get_generation().at(2).get_chromosome());
 	    }
 	    catch ( std::runtime_error& e )
 	    {

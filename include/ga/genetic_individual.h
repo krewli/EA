@@ -45,7 +45,7 @@ namespace ga
 
 	GeneticIndividual(const GeneticIndividual&) = default;
 	GeneticIndividual(GeneticIndividual&&) = default;
-	
+
 	GeneticIndividual& operator=(const GeneticIndividual&) = default;
 	GeneticIndividual& operator=(GeneticIndividual&&) = default;
 
@@ -80,7 +80,8 @@ namespace ga
 
 	void set_chromosome(const chromosome_encoding& chromosome)
 	{
-	    if (chromosome.size() != size_) {
+	    if (chromosome.size() != size_)
+	    {
 		throw InvalidChromosomeSize(chromosome.size(), size_);
 	    }
 
@@ -91,14 +92,14 @@ namespace ga
 	{
 	    seed_ = seed;
 	}
-	
+
 	bool operator==(const GeneticIndividual& other) const
 	{
-	    return (size_ == other.size_ && 
+	    return (size_ == other.size_ &&
 		    chromosome_ == other.chromosome_ &&
 		    seed_ == other.seed_);
 	}
-	
+
 	bool operator!=(const GeneticIndividual& other) const
 	{
 	    return !(*this == other);

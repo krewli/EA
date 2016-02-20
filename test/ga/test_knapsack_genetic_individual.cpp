@@ -108,7 +108,7 @@ namespace ga
 
 		KnapsackFitness::chromosome_type chromosome3 { true, true, true, false, false };
 		knapsack_individual->set_chromosome(chromosome3);
-		EXPECT_EQ(128, knapsack_individual->fitness(knapsack));
+		EXPECT_EQ(0, knapsack_individual->fitness(knapsack));
 	    }
 	    catch ( std::runtime_error& e )
 	    {
@@ -116,10 +116,10 @@ namespace ga
 		FAIL();
 	    }
 	}
-	
-	TEST_F(KnapsackGeneticIndividualTestSuite, test_exception_handling )
+
+	TEST_F( KnapsackGeneticIndividualTestSuite, test_exception_handling )
 	{
-	    chromosome_type chromosome{true, false, true};
+	    chromosome_type chromosome { true, false, true };
 	    EXPECT_THROW(knapsack_individual->set_chromosome(chromosome), InvalidChromosomeSize);
 	}
     }

@@ -16,6 +16,7 @@
 
 namespace knapsack
 {
+
     class KnapsackID
     {
     public:
@@ -23,7 +24,7 @@ namespace knapsack
 	: id_{ id }
 	{
 	}
-	
+
 	KnapsackID(const KnapsackID&) = default;
 	KnapsackID(KnapsackID&&) = default;
 
@@ -41,7 +42,7 @@ namespace knapsack
 
     private:
 	const int id_;
-	
+
 	KnapsackID& operator=(const KnapsackID&) = delete;
 	KnapsackID& operator=(KnapsackID&&) = delete;
     };

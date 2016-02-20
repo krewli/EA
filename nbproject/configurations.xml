@@ -19,6 +19,7 @@
           <itemPath>include/knapsack/knapsack_crossover.h</itemPath>
           <itemPath>include/knapsack/knapsack_fitness.h</itemPath>
           <itemPath>include/knapsack/knapsack_generation_alias.h</itemPath>
+          <itemPath>include/knapsack/knapsack_genetic_solver.h</itemPath>
           <itemPath>include/knapsack/knapsack_id.h</itemPath>
           <itemPath>include/knapsack/knapsack_individual_alias.h</itemPath>
           <itemPath>include/knapsack/knapsack_item.h</itemPath>
@@ -302,6 +303,11 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="include/knapsack/knapsack_genetic_solver.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="include/knapsack/knapsack_id.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_individual_alias.h"
@@ -528,6 +534,11 @@
             flavor2="0">
       </item>
       <item path="include/knapsack/knapsack_generation_alias.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="include/knapsack/knapsack_genetic_solver.h"
             ex="false"
             tool="3"
             flavor2="0">

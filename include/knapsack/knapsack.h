@@ -55,6 +55,11 @@ namespace knapsack
 	{
 	    return data_.at(index).get_value();
 	}
+	
+	double get_weight_at(unsigned index) const
+	{
+	    return data_.at(index).get_weight();
+	}
 
 	bool operator==(const Knapsack& other) const
 	{

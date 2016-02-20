@@ -18,6 +18,7 @@
 
 namespace knapsack
 {
+
     class KnapsackItem
     {
     public:

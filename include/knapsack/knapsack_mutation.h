@@ -49,7 +49,8 @@ namespace knapsack
 	{
 	    genotype new_gene = gene;
 
-	    if (util::get_random_real(0, 1, seed) < probability) {
+	    if (util::get_random_real(0, 1, seed) < probability)
+	    {
 
 		new_gene = gene == true ? false : true;
 	    }

@@ -12,15 +12,38 @@
  */
 
 #include <cstdlib>
+#include <iostream>
 
-using namespace std ;
+#include "knapsack.h"
+#include "knapsack_generation_alias.h"
+#include "knapsack_genetic_solver.h"
+
+using namespace std;
+using namespace knapsack;
 
 /*
  * 
  */
 int main( int argc, char** argv )
 {
+    try
+    {
+	Knapsack knapsack = read_knapsack("data/knapsack/ks_3_0");
+	
+	knapsack_generation solution = knapsack_genetic_solve(10, 10, 0.1, knapsack);
+	
+	for (const auto& child : solution.get_generation())
+	{
+	    cout << child.fitness(knapsack) << endl;
+	}
+	
+    }
+    catch ( std::runtime_error& e )
+    {
+	cout << "Runtime error: " << e.what() << endl;
+	return 1;
+    }
 
-    return 0 ;
+    return 0;
 }
 

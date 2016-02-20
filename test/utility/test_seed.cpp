@@ -21,18 +21,18 @@ namespace util
 	    void SetUp( )
 	    {
 		// Setup ...
-		 s1.set_value(0);
-		 s2.set_value(0);
-		 s3.set_value(1);
+		s1.set_value(0);
+		s2.set_value(0);
+		s3.set_value(1);
 	    }
 
 	    void TearDown( ) {
 		// Teardown ...
 	    }
-	    
-	    Seed s1{-1};
-	    Seed s2{-1};
-	    Seed s3{-1};
+
+	    Seed s1 { -1 };
+	    Seed s2 { -1 };
+	    Seed s3 { -1 };
 	};
 
 	TEST_F( SeedTestSuite, test_getters )
@@ -59,7 +59,7 @@ namespace util
 	    EXPECT_EQ(1, s1.get_value());
 	    EXPECT_EQ(2, s4.get_value());
 	}
-	
+
 	TEST_F( SeedTestSuite, test_no_seed_value )
 	{
 	    s1.set_value(-1);

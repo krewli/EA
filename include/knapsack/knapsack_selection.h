@@ -23,6 +23,7 @@
 
 namespace knapsack
 {
+
     struct KnapsackRouletteWheel
     :
     public ga::Selection<
@@ -46,7 +47,8 @@ namespace knapsack
 	    unsigned index = 0;
 	    int current_fitness_sum = generation.at(index).fitness(problem);
 
-	    while (current_fitness_sum < random_number) {
+	    while (current_fitness_sum < random_number)
+	    {
 		++index;
 		current_fitness_sum += generation.at(index).fitness(problem);
 	    }

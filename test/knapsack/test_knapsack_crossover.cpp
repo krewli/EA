@@ -36,7 +36,7 @@ namespace knapsack
 	    knapsack_individual parent1 { size };
 	    knapsack_individual parent2 { size };
 	    knapsack_individual::chromosome_encoding chromosome1 { true, false, false };
-	    knapsack_individual::chromosome_encoding chromosome2 { false, true, true};
+	    knapsack_individual::chromosome_encoding chromosome2 { false, true, true };
 	    parent1.set_chromosome(chromosome1);
 	    parent2.set_chromosome(chromosome2);
 	    util::Seed seed { 0 };
@@ -53,14 +53,14 @@ namespace knapsack
 	    EXPECT_EQ(expected_offspring_1.get_chromosome(), actual_result.at(0).get_chromosome());
 	    EXPECT_EQ(expected_offspring_2.get_chromosome(), actual_result.at(1).get_chromosome());
 	}
-	
+
 	TEST_F( KnapsackCrossoverTestSuite, test_creating_offspring_with_larger_size )
 	{
 	    unsigned size = 5;
 	    knapsack_individual parent1 { size };
 	    knapsack_individual parent2 { size };
 	    knapsack_individual::chromosome_encoding chromosome1 { true, false, false, true, true };
-	    knapsack_individual::chromosome_encoding chromosome2 { false, true, true, false, false};
+	    knapsack_individual::chromosome_encoding chromosome2 { false, true, true, false, false };
 	    parent1.set_chromosome(chromosome1);
 	    parent2.set_chromosome(chromosome2);
 	    util::Seed seed { 0 };

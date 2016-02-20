@@ -41,7 +41,7 @@ namespace ga
 	: size_{ size }, seed_{ util::NO_SEED }
 	{
 	}
-	
+
 	GeneticGeneration(const GeneticGeneration&) = default;
 	GeneticGeneration(GeneticGeneration&&) = default;
 
@@ -63,7 +63,8 @@ namespace ga
 	    individual_type parent2 = selection_policy::select(generation_,
 							    problem,
 							    internal_seed);
-	    while (parent1 == parent2) {
+	    while (parent1 == parent2)
+	    {
 		++internal_seed;
 		parent2 = selection_policy::select(generation_,
 						problem,
@@ -85,7 +86,8 @@ namespace ga
 
 	void set_generation(const generation_type& generation)
 	{
-	    if (generation.size() != size_) {
+	    if (generation.size() != size_)
+	    {
 		throw InvalidGenerationSize{ static_cast<int> (generation.size()),
 					static_cast<int> (size_) };
 	    }

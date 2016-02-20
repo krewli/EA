@@ -43,50 +43,50 @@ namespace knapsack
 	return Knapsack { capacity, number_of_items, items };
     }
 
-    knapsack_individual::chromosome_encoding generate_chromosome(unsigned size)
+    knapsack_individual::chromosome_encoding generate_default_chromosome( unsigned size )
     {
 	knapsack_individual::chromosome_encoding chromosome;
-	
-	for(unsigned i = 0; i < size; ++i)
+
+	for ( unsigned i = 0; i < size; ++i )
 	{
 	    chromosome.push_back(false);
 	}
-	
+
 	return chromosome;
     }
-    
-    knapsack_individual generate_random_individual(const Knapsack& knapsack,
-						   const util::Seed& seed)
+
+    knapsack_individual generate_random_individual( const Knapsack& knapsack,
+						    const util::Seed& seed )
     {
-	knapsack_individual result{knapsack.get_item_count()};
-	
-	knapsack_individual::chromosome_encoding chromosome = generate_chromosome(result.get_size());
-	
+	knapsack_individual result { knapsack.get_item_count() };
+
+	knapsack_individual::chromosome_encoding chromosome = generate_default_chromosome(result.get_size());
+
 	result.set_chromosome(chromosome);
 	result.set_seed(seed);
 	result.mutate(0.5);
-	
+
 	return result;
     }
-    
-    knapsack_generation generate_random_generation(unsigned size,
-						   const Knapsack& knapsack,
-						   const util::Seed& seed)
+
+    knapsack_generation generate_random_generation( unsigned size,
+						    const Knapsack& knapsack,
+						    const util::Seed& seed )
     {
-	knapsack_generation result{size};
-	
+	knapsack_generation result { size };
+
 	knapsack_generation_type generation;
-	
-	util::Seed internal_seed{seed};
-	
-	for (unsigned i = 0; i < size; ++i)
+
+	util::Seed internal_seed { seed };
+
+	for ( unsigned i = 0; i < size; ++i )
 	{
 	    generation.push_back(generate_random_individual(knapsack, internal_seed));
 	    ++internal_seed;
 	}
-	
+
 	result.set_generation(generation);
-	
+
 	return result;
     }
 }

@@ -66,7 +66,7 @@ namespace ga
 
 		knapsack_individual expected_offspring_1 { 3 };
 		knapsack_individual expected_offspring_2 { 3 };
-		knapsack_individual::chromosome_encoding chromosome4 { true, true, true };
+		knapsack_individual::chromosome_encoding chromosome4 { true, false, true };
 		knapsack_individual::chromosome_encoding chromosome5 { false, false, false };
 		expected_offspring_1.set_chromosome(chromosome4);
 		expected_offspring_2.set_chromosome(chromosome5);

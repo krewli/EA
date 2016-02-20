@@ -66,11 +66,14 @@ namespace knapsack
 	    chromosome_type parent1_chromosome = parent1.get_chromosome();
 	    chromosome_type parent2_chromosome = parent2.get_chromosome();
 
-	    for (unsigned i = 0; i < parent1.get_size(); ++i) {
-		if (i < cross_point) {
+	    for (unsigned i = 0; i < parent1.get_size(); ++i)
+	    {
+		if (i < cross_point)
+		{
 		    new_chromosome.push_back(parent1_chromosome.at(i));
 		}
-		else {
+		else
+		{
 		    new_chromosome.push_back(parent2_chromosome.at(i));
 		}
 	    }

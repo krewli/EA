@@ -24,18 +24,12 @@ namespace ga
     public:
 
 	explicit GeneticException(const char* message)
-	: std::runtime_error(message)
-	{
-	}
+	: std::runtime_error(message) { }
 
 	explicit GeneticException(const std::string& message)
-	: std::runtime_error(message)
-	{
-	}
+	: std::runtime_error(message) { }
 
-	virtual ~GeneticException() throw ()
-	{
-	}
+	virtual ~GeneticException() throw () { }
 
 	virtual const char* what() const throw ()
 	{
@@ -53,13 +47,11 @@ namespace ga
 	explicit InvalidChromosomeSize(int actual_size, int expected_size)
 	: GeneticException(std::string{ "(" + std::to_string(actual_size) + ")" +
 			" does not match the expected size (" +
-			std::to_string(expected_size) + ")." })
-	{
-	}
+			std::to_string(expected_size) + ")." }) { }
 
 	~InvalidChromosomeSize() override = default;
     };
-    
+
     class InvalidGenerationSize : public GeneticException
     {
     public:
@@ -67,9 +59,7 @@ namespace ga
 	explicit InvalidGenerationSize(int actual_size, int expected_size)
 	: GeneticException(std::string{ "(" + std::to_string(actual_size) + ")" +
 			" does not match the expected size (" +
-			std::to_string(expected_size) + ")." })
-	{
-	}
+			std::to_string(expected_size) + ")." }) { }
 
 	~InvalidGenerationSize() override = default;
     };

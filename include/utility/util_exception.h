@@ -24,18 +24,12 @@ namespace util
     public:
 
 	explicit UtilException(const char* message)
-	: std::runtime_error(message)
-	{
-	}
+	: std::runtime_error(message) { }
 
 	explicit UtilException(const std::string& message)
-	: std::runtime_error(message)
-	{
-	}
+	: std::runtime_error(message) { }
 
-	virtual ~UtilException() throw ()
-	{
-	}
+	virtual ~UtilException() throw () { }
 
 	virtual const char* what() const throw ()
 	{
@@ -54,9 +48,7 @@ namespace util
 	: UtilException(std::string{ "Upper bound (" +
 			std::to_string(upper_bound) +
 			") has to be strict greater than lower bound (" +
-			std::to_string(lower_bound) + ")." })
-	{
-	}
+			std::to_string(lower_bound) + ")." }) { }
 
 	~InvalidBoundError() override = default;
     };

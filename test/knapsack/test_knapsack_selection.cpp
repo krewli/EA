@@ -67,7 +67,7 @@ namespace knapsack
 		FAIL();
 	    }
 	}
-	
+
 	TEST_F( KnapsackSelectionTestSuite, test_selection_with_only_one_individual_having_fitness_above_0 )
 	{
 	    try
