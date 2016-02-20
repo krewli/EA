@@ -55,12 +55,31 @@ namespace knapsack
 	return chromosome;
     }
 
+    bool valid_chromosome( const knapsack_individual::chromosome_encoding& chromosome,
+			   const Knapsack& knapsack )
+    {
+	double capacity = 0.0;
+
+	for ( unsigned i = 0; i < chromosome.size(); ++i )
+	{
+
+	    if ( chromosome.at(i) )
+	    {
+		capacity += knapsack.get_weight_at(i);
+	    }
+	}
+
+	return capacity <= knapsack.get_capacity();
+    }
+
     knapsack_individual generate_random_individual( const Knapsack& knapsack,
 						    const util::Seed& seed )
     {
 	knapsack_individual result { knapsack.get_item_count() };
 
 	knapsack_individual::chromosome_encoding chromosome = generate_default_chromosome(result.get_size());
+
+	chromosome.at(0) = true;
 
 	result.set_chromosome(chromosome);
 	result.set_seed(seed);

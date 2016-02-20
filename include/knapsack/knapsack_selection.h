@@ -14,6 +14,8 @@
 #ifndef KNAPSACK_SELECTION_H
 #define KNAPSACK_SELECTION_H
 
+#include <iostream>
+
 #include "knapsack.h"
 #include "knapsack_individual_alias.h"
 
@@ -44,9 +46,11 @@ namespace knapsack
 	    int upper_bound{ get_total_fitness(generation, problem) };
 	    int random_number = util::get_random_integer(lower_bound, upper_bound, seed);
 
+	    // std::cout << upper_bound << " " << random_number << std::endl;
+	    
 	    unsigned index = 0;
 	    int current_fitness_sum = generation.at(index).fitness(problem);
-
+	    
 	    while (current_fitness_sum < random_number)
 	    {
 		++index;

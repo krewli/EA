@@ -14,6 +14,8 @@
 #ifndef KNAPSACK_GENETIC_SOLVER_H
 #define KNAPSACK_GENETIC_SOLVER_H
 
+#include <iostream>
+
 #include "knapsack_generation_alias.h"
 #include "knapsack_utility.h"
 
@@ -30,13 +32,18 @@ namespace knapsack
 	knapsack_generation current_generation{ generate_random_generation(generation_size, knapsack) };
 	knapsack_generation_type children;
 
+//	for (auto child : current_generation.get_generation())
+//	{
+//	    std::cout << child.fitness(knapsack) << std::endl;
+//	}
+
 	knapsack_generation_type best_child_per_generation;
 
-	knapsack_individual best_individual_in_current_generation{knapsack.get_item_count()};
+	knapsack_individual best_individual_in_current_generation{ knapsack.get_item_count() };
 
 	while (generation_counter < num_of_generations)
 	{
-	    while (children.size() != current_generation.get_size())
+	    while (children.size() < generation_size)
 	    {
 		auto offsprings = current_generation.offspring(knapsack);
 
@@ -44,13 +51,14 @@ namespace knapsack
 		children.push_back(offsprings.at(1));
 	    }
 
+
 	    best_individual_in_current_generation.set_chromosome(generate_default_chromosome(knapsack.get_item_count()));
 
 	    for (auto child : children)
 	    {
 		child.mutate(mutation_probability);
 
-		if (child.fitness(knapsack) > best_individual_in_current_generation.fitness(knapsack))
+		if (child.fitness(knapsack) > best_individual_in_current_generation.fitness(knapsack) && valid_chromosome(child.get_chromosome(), knapsack))
 		{
 		    best_individual_in_current_generation = child;
 		}
@@ -60,7 +68,7 @@ namespace knapsack
 
 	    current_generation.set_generation(children);
 	    children.clear();
-	    
+
 	    ++generation_counter;
 	}
 

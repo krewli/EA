@@ -15,6 +15,7 @@
 #define KNAPSACK_CROSSOVER_H
 
 #include <assert.h>
+#include <iostream>
 
 #include "knapsack_individual_alias.h"
 
@@ -41,7 +42,6 @@ namespace knapsack
 	    int cross_point = get_cross_point(parent1.get_size(), seed);
 
 	    return_type offspring;
-
 	    offspring.push_back(child(parent1, parent2, cross_point));
 	    offspring.push_back(child(parent2, parent1, cross_point));
 
@@ -51,7 +51,6 @@ namespace knapsack
 	static int get_cross_point(int upper_bound, const util::Seed & seed)
 	{
 	    return util::get_random_integer(1, upper_bound - 2, seed);
-	    ;
 	}
 
 	static individual_type child(const individual_type& parent1,

@@ -14,6 +14,8 @@
 #ifndef GENETIC_GENERATION_H
 #define GENETIC_GENERATION_H
 
+#include <iostream>
+
 #include "genetic_crossover.h"
 #include "genetic_selection.h"
 
@@ -63,6 +65,7 @@ namespace ga
 	    individual_type parent2 = selection_policy::select(generation_,
 							    problem,
 							    internal_seed);
+
 	    while (parent1 == parent2)
 	    {
 		++internal_seed;
@@ -85,7 +88,7 @@ namespace ga
 	}
 
 	void set_generation(const generation_type& generation)
-	{
+	{	    
 	    if (generation.size() != size_)
 	    {
 		throw InvalidGenerationSize{ static_cast<int> (generation.size()),

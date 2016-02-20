@@ -14,6 +14,8 @@
 #ifndef KNAPSACK_INDIVIDUAL_ALIAS_H
 #define KNAPSACK_INDIVIDUAL_ALIAS_H
 
+#include <vector>
+
 #include "knapsack.h"
 #include "knapsack_mutation.h"
 #include "knapsack_fitness.h"

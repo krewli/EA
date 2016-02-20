@@ -15,6 +15,7 @@
 #define KNAPSACK_FITNESS_H
 
 #include "knapsack.h"
+
 #include "genetic_fitness.h"
 
 namespace knapsack
@@ -37,28 +38,12 @@ namespace knapsack
 		}
 	    }
 
-	    if (!within_capacity(chromosome, problem))
-	    {
-		fitness_value = 0;
-	    }
+//	    if (!valid_chromosome(chromosome, problem))
+//	    {
+//		fitness_value = 0;
+//	    }
 
 	    return fitness_value;
-	}
-
-	static bool within_capacity(const chromosome_type& chromosome,
-				const problem_type& problem)
-	{
-	    double capacity = 0.0;
-
-	    for (unsigned i = 0; i < chromosome.size(); ++i)
-	    {
-		if (chromosome.at(i))
-		{
-		    capacity += problem.get_weight_at(i);
-		}
-	    }
-
-	    return capacity < problem.get_capacity();
 	}
     };
 }

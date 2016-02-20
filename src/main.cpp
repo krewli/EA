@@ -22,21 +22,26 @@ using namespace std;
 using namespace knapsack;
 
 /*
- * 
+/data/ks_30_0 : 99798
+/data/ks_50_0 : 142156
+/data/ks_200_0 : 100236
+/data/ks_400_0 : 3967180
+/data/ks_1000_0 : 109899
+/data/ks_10000_0 : 1099893
  */
+
 int main( int argc, char** argv )
 {
     try
     {
-	Knapsack knapsack = read_knapsack("data/knapsack/ks_3_0");
-	
-	knapsack_generation solution = knapsack_genetic_solve(10, 10, 0.1, knapsack);
-	
-	for (const auto& child : solution.get_generation())
+	Knapsack knapsack = read_knapsack("data/knapsack/ks_30_0");
+
+	knapsack_generation solution = knapsack_genetic_solve(1000, 100, 0.1, knapsack);
+
+	for ( const auto& child : solution.get_generation() )
 	{
 	    cout << child.fitness(knapsack) << endl;
 	}
-	
     }
     catch ( std::runtime_error& e )
     {

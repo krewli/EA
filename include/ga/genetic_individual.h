@@ -14,9 +14,12 @@
 #ifndef GENETIC_INDIVIDUAL_H
 #define GENETIC_INDIVIDUAL_H
 
+#include <iostream>
+
 #include "genetic_exception.h"
 
 #include "seed.h"
+#include "random.h"
 #include "util_exception.h"
 
 namespace ga
@@ -104,6 +107,16 @@ namespace ga
 	{
 	    return !(*this == other);
 	}
+	
+	void print_chromosome()
+	{
+	    for (unsigned i = 0; i < chromosome_.size(); ++i)
+	    {
+		std::cout << chromosome_.at(i) << " ";
+	    }
+	    std::cout << std::endl;
+	}
+
 
     protected:
 
@@ -111,8 +124,8 @@ namespace ga
 	unsigned size_;
 	chromosome_encoding chromosome_;
 	util::Seed seed_;
-
     };
+    
 }
 
 #endif /* GENETIC_INDIVIDUAL_H */

@@ -1,1 +1,2 @@
-TODO: Create the genetic algorithm
+TODO: Make sure that individuals have valid chromosomes 
+      that does not go over the capacity cap
